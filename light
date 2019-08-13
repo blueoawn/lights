@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>lab2</title>
+<script type="application/javascript">
+     function sendAjax(url,method,str){
+    var req = new XMLHttpRequest();
+    req.open(method, url,true);
+    req.setRequestHeader("Content-Type","application/json");
+    req.send(str);
+}
+    function lightspazz(lightID){
+    var lightOn = true;
+    var bri = 255;
+    var urlStr = "http://130.166.45.108/api/";
+    var authCode = "lH7nZmlzj1fMbsjzOAyrs6sO24zAsMY--IiF59vH";
+    urlStr += authCode;
+    urlStr += "/lights/" + lightID + "/state";
+    console.log(urlStr);
+    sendAjax(urlStr,"PUT",JSON.stringify({"on" : true , "bri" : 120 , "hue" : 55000 }));
+}
+</script>
+</head>
+
+<body>
+
+	<p id="thisistheone">wow wwowowowow</p>
+	<button onClick="lightspazz(1)"> click </button>
+</body>
+</html>
