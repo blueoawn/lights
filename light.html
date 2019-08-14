@@ -49,7 +49,7 @@
 	var hue = 000;
     urlStr += authCode;
     urlStr += "/lights/" + 5 + "/state";
-		sendAjax(urlStr,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
+		sendAjax(urlStr,"PUT",JSON.stringify({"on" : false , "bri" : 0 , "hue" : hue }));
 
 	}
 	function ddosthemlights(){
