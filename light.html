@@ -40,8 +40,18 @@
 	}
 	function ddosthemlights(){
 	for(var i=0;i<12;i++){
-	    setInterval(lightandcolor(i,i*1000),600);
+	    setInterval(lightandcolor(i/2,Math.random()*10000),600);
 	}
+		function lightsout(){
+	var bri = 0;
+    var urlStr = "http://130.166.45.108/api/";
+    var authCode = "lH7nZmlzj1fMbsjzOAyrs6sO24zAsMY--IiF59vH";
+	var hue = 000000;
+    urlStr += authCode;
+    urlStr += "/lights/" + lightID + "/state";
+    console.log(urlStr);
+    sendAjax(urlStr,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
+		}
 	}
 </script>
 </head>
@@ -53,6 +63,8 @@
 	<button onClick="lightsrcool()"> another cool button </button>
 	<button onClick="ddosthemlights"> dangerous button </button>
 	<button onClick="halt()"> HALT! YOU HAVE VIOLATED THE LAW! </button>
+	<button onClick="lightsout()"> die </button>
+
 
 </body>
 </html>
