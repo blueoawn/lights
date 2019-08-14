@@ -43,15 +43,36 @@
 	    setInterval(lightandcolor(i/2,Math.random()*10000),600);
 	}
 	}
-		function lightsout(){
+	function lightsout(){
 	var bri = 0;
     var urlStr = "http://130.166.45.108/api/";
+	var urlStr2 = "http://130.166.45.108/api/";
+	var urlStr3 = "http://130.166.45.108/api/";
+	var urlStr4 = "http://130.166.45.108/api/";
+	var urlStr5 = "http://130.166.45.108/api/";
+	var urlStr6 = "http://130.166.45.108/api/";
+
     var authCode = "lH7nZmlzj1fMbsjzOAyrs6sO24zAsMY--IiF59vH";
 	var hue = 000000;
     urlStr += authCode;
-    urlStr += "/lights/" + lightID + "/state";
+    urlStr += "/lights/" + 1 + "/state";
+    urlStr2 += authCode;
+    urlStr2 += "/lights/" + 2 + "/state";
+    urlStr3 += authCode;
+    urlStr3 += "/lights/" + 3 + "/state";
+	urlStr4 += authCode;
+    urlStr4 += "/lights/" + 4 + "/state";
+    urlStr5 += authCode;
+	urlStr5 += "/lights/" + 5 + "/state";
+    urlStr6 += authCode;
+	urlStr5 += "/lights/" + 6 + "/state";
     console.log(urlStr);
     sendAjax(urlStr,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
+    sendAjax(urlStr2,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
+    sendAjax(urlStr3,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
+	sendAjax(urlStr4,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
+    sendAjax(urlStr5,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
+    sendAjax(urlStr6,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
 		}
 </script>
 </head>
