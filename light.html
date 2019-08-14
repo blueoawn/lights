@@ -40,7 +40,7 @@
 	}
 	function ddosthemlights(){
 	for(var i=0;i<12;i++){
-	    setInterval(lightandcolor(i/2,Math.random()*10000),600);
+		lightsout();
 	}
 	}
 	function lightsout(){
@@ -65,7 +65,7 @@
     urlStr5 += authCode;
 	urlStr5 += "/lights/" + 5 + "/state";
     urlStr6 += authCode;
-	urlStr5 += "/lights/" + 6 + "/state";
+	urlStr6 += "/lights/" + 6 + "/state";
     console.log(urlStr);
     sendAjax(urlStr,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
     sendAjax(urlStr2,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
