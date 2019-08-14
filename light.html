@@ -33,10 +33,24 @@
     sendAjax(urlStr,"PUT",JSON.stringify({"on" : lightOn , "bri" : bri , "hue" : hue }));
 }
     function lightsrcool(){
-    setInterval(lightspazz(5),1000);
+    lightspazz(5);
+	setTimeout(lightspazz(5),600);
+	setTimeout(halt(),1200);
+	setTimeout(lightspazz(5),1800);
+	setTimeout(halt(),2400);
+	setTimeout(lightspazz(5),3200);
+	setTimeout(halt(),4800);
+	setTimeout(lightspazz(5),5400);
+
 	}
 	function halt(){
-	clearInterval();
+	var urlStr = "http://130.166.45.108/api/";
+    var authCode = "lH7nZmlzj1fMbsjzOAyrs6sO24zAsMY--IiF59vH";
+	var hue = 000;
+    urlStr += authCode;
+    urlStr += "/lights/" + 5 + "/state";
+		sendAjax(urlStr,"PUT",JSON.stringify({"on" : false , "bri" : bri , "hue" : hue }));
+
 	}
 	function ddosthemlights(){
 	for(var i=0;i<12;i++){
@@ -82,10 +96,9 @@
 	<p id="thisistheone">wow wwowowowow</p>
 	<button onClick="lightspazz(5)"> click </button>
 	<button onClick="lightsrcool()"> another cool button </button>
-	<button onClick="ddosthemlights"> dangerous button </button>
+	<button onClick="ddosthemlights()"> dangerous button </button>
 	<button onClick="halt()"> HALT! YOU HAVE VIOLATED THE LAW! </button>
 	<button onClick="lightsout()"> die </button>
-
 
 </body>
 </html>
