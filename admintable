@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DataBase</title>
+<style>
+	 table,td,th   { border-style: solid; border-color: red;
+				color: purple; }
+      </style>
+</head>
+<body>
+<table>
+     <tbody>
+     <tr>
+       <th>username</th>
+       <th>staredpassword</th>
+     </tr>
+<?php 
+	 //$searchArtist = $_GET["keywords"];
+     $db = mysqli_connect('localhost', 'root', '', 'practice');
+     if(!$db)
+     {
+		die("</tbody><table>could not connect to DB </body></html>");
+     }
+     $query = "SELECT username, staredpassword FROM user";
+     $stmt = mysqli_prepare($db, $query);
+	 //$stmt->bind_param("s", $searchArtist );
+
+
+     //if ($stmt === FALSE)
+	 if (! $stmt->execute())
+	{
+	
+		die("</tbody><table>fix your query syntax! </body></html>");
+	}
+
+     $stmt->bind_result($username, $staredpassword);
+
+	// while($row = mysql_fetch_array($result))
+	//{   //Creates a loop to loop through results
+	//	echo "<tr><td>" . $row['username'] . "</td><td>" . $row['staredpassword'] . "</td></tr>";  //$row['index'] the index here is a field name
+	//}
+
+     while ($stmt->fetch())
+     {
+        print("<tr><td>");
+	    print($username);
+	    print("</td><td>");
+	    print($staredpassword);
+	    print("</td></tr>");
+     }
+     mysqli_close($db);
+?>
+     </tbody>
+   </table>
+
+</body>
+
+
+
+</html>
